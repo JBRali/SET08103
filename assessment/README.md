@@ -152,8 +152,10 @@ Any dismissed team member has a week to appeal the decision to the module team w
 
 Each group will undertake **four** graded code reviews as well as a final submission at the end of Week 13:
 
-1. Week 3 Code Review 1 (20% of CW mark).
-2. Week 6 Code Review 2 (20% of CW mark).
+Note that Teaching starts in Week 2. Week Commencing 25th January
+
+1. Week 4 Code Review 1 (20% of CW mark).
+2. Week 7 Code Review 2 (20% of CW mark).
 3. Week 10 Code Review 3 (20% of CW mark).
 4. Week 13 Code Review 4 (20% of CW mark).
 5. Week 13 Final submission (20% of CW Mark)
@@ -169,7 +171,7 @@ The code reviews will take place during your usual Lab sessions.  Each group wil
 
 ### Code Review 1
 
-#### REVIEW MEETING: Lab of Week 3
+#### REVIEW MEETING: Lab of Week 4
 
 The aim of this code review meeting is to check that the project workflow is set-up for the team.  You may choose to meet some of the feature requirements during this review point, but it is not as necessary.
 
@@ -195,7 +197,7 @@ The following criteria will be assessed for overall quality:
 
 ### Code Review 2
 
-#### REVIEW MEETING: Lab of Week 6
+#### REVIEW MEETING: Lab of Week 7
 
 The aim of this code review is to check that task management is set-up and that the initial requirements gathering has taken place via user stories and use cases.  You should have completed at least 25% of the work for the project at this point based on your own estimates.
 
