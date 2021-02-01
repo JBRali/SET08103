@@ -1,6 +1,6 @@
 # Lab 02: Continous Integration Setup
 
-In this lab we will automate our build process using [Travis CI](https://travis-ci.org/).  CI is [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration), a software engineering method where we ensure our local development software versions are merged into the mainline code several times a day.  There are several CI approaches available, but Travis is easy to plug into our software production pipeline.
+In this lab we will automate our build process using [Travis CI](https://travis-ci.com/).  CI is [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration), a software engineering method where we ensure our local development software versions are merged into the mainline code several times a day.  There are several CI approaches available, but Travis is easy to plug into our software production pipeline.
 
 ## Behavioural Objectives
 
@@ -79,15 +79,13 @@ Hopefully everything has worked and we are back to the point we left off at last
 
 ## Adding Travis CI to Your Repository
 
-With our project back on our local machine we can set-up Travis CI.  This is automated via the [Travis CI website](https://travis-ci.org/).  Go there now:
+With our project back on our local machine we can set-up Travis CI.  This is automated via the [Travis CI website](https://travis-ci.com/).  Go there now:
 
 ![Travis CI Website](img/travis-ci.png)
 
-Select **Login with GitHub**.  If you are already logged into GitHub (which you probably are) this should be done fairly easily.  Once you have signed up and activated your account you should be taken to your profile page which has the URL `https://travis-ci.org/profile/<github-username>`:
+Select **Login with GitHub**.  If you are already logged into GitHub (which you probably are) this should be done fairly easily.  Once you have signed up and activated your account you should be taken to your profile page which has the URL `https://travis-ci.com/profile/<github-username>`:
 
-![Travis CI Profile](img/travis-settings.png)
-
-Activate Travis for the **sem** repository by activating the toggle next to the project as shown in the image.  And that is it - Travis is integrated into our GitHub account.
+And that is it - Travis is integrated into our GitHub account.
 
 Travis CI is triggered by pushes to our repository and so we do not need to do anything specific within Travis itself.  However, we do need to tell Travis how to build our application.
 
