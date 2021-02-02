@@ -270,17 +270,13 @@ Open the Services panel at the bottom of IntelliJ and make sure **Images** is hi
 
 ![IntelliJ Docker Panel](img/intellij-docker-panel.png)
 
-
-
-![IntelliJ Pull Image](img/intellij-pull-image.png)
-
 Type **mongo** press ctrl + Enter to start.  The latest version of MongoDB will now be pulled as an image. It will appear in the Docker panel of IntelliJ:
 
 With `mongo:latest` selected, click the **plus sign** to **Create Container**.  This will open the following window:
 
 ![IntelliJ Create Container](img/intellij-create-container.png)
 
-MongoDB is a server application which listens on port 27017.  We could just open that port, but just in case MongoDB is already running locally we will switch ports.  We looked at this in the last lab.  In the **Command Line Options** text box add **-p 27000:27017** as shown in the image.  Then click **Run**.  IntelliJ will start the container and it will be waiting for you to use.
+MongoDB is a server application which listens on port 27017.  We could just open that port, but just in case MongoDB is already running locally we will switch ports.  We looked at this in the last lab.  In the **Run Options** text box add **-p 27000:27017** as shown in the image.  Then click **Run**.  IntelliJ will start the container and it will be waiting for you to use.
 
 ### Starting a Feature Branch
 
