@@ -266,19 +266,17 @@ This may seem like a lot of steps, but individually they are simple.  What could
 
 Our first step is to start a new MongoDB container.  Let us do this via IntelliJ rather than the command line.
 
-Open the Docker panel at the bottom of IntelliJ and make sure **Images** is highlighted:
+Open the Services panel at the bottom of IntelliJ and make sure **Images** is highlighted. The button on the top-left allows us to pull images for Docker.  Click this button to open the **Images Console** window:
 
 ![IntelliJ Docker Panel](img/intellij-docker-panel.png)
 
-The button on the top-left allows us to pull images for Docker.  Click this button to open the **Pull Image** window:
+
 
 ![IntelliJ Pull Image](img/intellij-pull-image.png)
 
-Type **mongo** as the **Repository** and click **OK**.  The latest version of MongoDB will now be pulled as an image. It will appear in the Docker panel of IntelliJ:
+Type **mongo** press ctrl + Enter to start.  The latest version of MongoDB will now be pulled as an image. It will appear in the Docker panel of IntelliJ:
 
-![IntelliJ with MongoDB Image](img/intellij-mongo-image.png)
-
-With `mongo:latest` selected, click the **blue plus sign** to **Create Container**.  This will open the following window:
+With `mongo:latest` selected, click the **plus sign** to **Create Container**.  This will open the following window:
 
 ![IntelliJ Create Container](img/intellij-create-container.png)
 
@@ -307,7 +305,7 @@ We will use Maven to manage the import of MongoDB functionality into our applica
     </dependencies>
 ```
 
-We add this to the `pom.xml` file as follows:
+We add this to the `pom.xml` file as follows: 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -319,8 +317,8 @@ We add this to the `pom.xml` file as follows:
     <groupId>com.napier.sem</groupId>
     <artifactId>seMethods</artifactId>
     <version>0.1.0.1</version>
-
-    <dependencies>
+    
+     <dependencies>
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
@@ -330,6 +328,11 @@ We add this to the `pom.xml` file as follows:
 
 </project>
 ```
+
+If IntelliJ does not automatically download the dependencies click on the refresh button on the maven panel:
+
+![Refresh Maven](img/maven_refresh.png)
+
 
 IntelliJ will manage everything for us.  Initially the test `org.mongodb` and `mongodb-driver` will be red, but once the import is complete it will turn black.  Let us to a commit.
 
@@ -358,10 +361,10 @@ public class App
         // Get a collection from the database
         MongoCollection<Document> collection = database.getCollection("test");
         // Create a document to store
-        Document doc = new Document("name", "Kevin Chalmers")
-                           .append("class", "Software Engineering Methods")
-                           .append("year", "2018/19")
-                           .append("result", new Document("CW", 95).append("EX", 85));
+        Document doc = new Document("name", "Kevin Sim")
+                .append("class", "Software Engineering Methods")
+                .append("year", "2021")
+                .append("result", new Document("CW", 95).append("EX", 85));
         // Add document to collection
         collection.insertOne(doc);
 
@@ -375,32 +378,34 @@ public class App
 Now all we have to do is run the application normally (i.e. not as a Docker container).  Select **Run** then **Run** and select **App** as the configuration.  Your application should launch, connect to the MongoDB server running in the Docker container and perform some basic operations as shown.  The console output will look something like the following:
 
 ```shell
-/usr/lib/jvm/java-10-jdk/bin/java -javaagent:/opt/JetBrains/apps/IDEA-U/ch-0/182.3458.5/lib/idea_rt.jar=37241:/opt/JetBrains/apps/IDEA-U/ch-0/182.3458.5/bin -Dfile.encoding=UTF-8 -classpath /home/kevin/IdeaProjects/sem/target/classes:/home/kevin/.m2/repository/org/mongodb/mongodb-driver/3.6.4/mongodb-driver-3.6.4.jar:/home/kevin/.m2/repository/org/mongodb/bson/3.6.4/bson-3.6.4.jar:/home/kevin/.m2/repository/org/mongodb/mongodb-driver-core/3.6.4/mongodb-driver-core-3.6.4.jar com.napier.sem.App
-Jul 15, 2018 3:05:09 PM com.mongodb.diagnostics.logging.JULLogger log
+"C:\Program Files\Java\jdk1.8.0_181\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\lib\idea_rt.jar=51700:C:\Program Files\JetBrains\IntelliJ IDEA 2020.3.2\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\Users\KevL\Desktop\SEM_Demo\target\classes;C:\Users\KevL\.m2\repository\org\mongodb\mongodb-driver\3.6.4\mongodb-driver-3.6.4.jar;C:\Users\KevL\.m2\repository\org\mongodb\bson\3.6.4\bson-3.6.4.jar;C:\Users\KevL\.m2\repository\org\mongodb\mongodb-driver-core\3.6.4\mongodb-driver-core-3.6.4.jar" com.napier.sem.App
+Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Cluster created with settings {hosts=[localhost:27000], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-Jul 15, 2018 3:05:09 PM com.mongodb.diagnostics.logging.JULLogger log
+Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Cluster description not yet available. Waiting for 30000 ms before timing out
-Jul 15, 2018 3:05:10 PM com.mongodb.diagnostics.logging.JULLogger log
+Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27000
-Jul 15, 2018 3:05:10 PM com.mongodb.diagnostics.logging.JULLogger log
-INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27000, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4442274}
-Jul 15, 2018 3:05:10 PM com.mongodb.diagnostics.logging.JULLogger log
+Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
+INFO: Monitor thread successfully connected to server with description ServerDescription{address=localhost:27000, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 4, 3]}, minWireVersion=0, maxWireVersion=9, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4243600}
+Feb 02, 2021 11:41:28 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27000
-{ "_id" : { "$oid" : "5b4b5495da12e64fb1d0b7cc" }, "name" : "Kevin Chalmers", "class" : "Software Engineering Methods", "year" : "2018/19", "result" : { "CW" : 95, "EX" : 85 } }
+{ "_id" : { "$oid" : "60193a68517ac5004c914c07" }, "name" : "Kevin Sim", "class" : "Software Engineering Methods", "year" : "2021", "result" : { "CW" : 95, "EX" : 85 } }
 
 Process finished with exit code 0
+
 ```
 
-If you look at the logs of the MongoDB container in IntelliJ you will see the following lines added:
+If you look at the logs of the MongoDB container in IntelliJ you will see the something similar to the following partial log:
 
 ```shell
-2018-07-15T14:05:09.917+0000 I NETWORK  [listener] connection accepted from 172.17.0.1:57888 #1 (1 connection now open)
-2018-07-15T14:05:09.978+0000 I NETWORK  [conn1] received client metadata from 172.17.0.1:57888 conn1: { driver: { name: "mongo-java-driver", version: "3.6.4" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "4.17.5-1-ARCH" }, platform: "Java/Oracle Corporation/10.0.1+10" }
-2018-07-15T14:05:10.055+0000 I NETWORK  [listener] connection accepted from 172.17.0.1:57892 #2 (2 connections now open)
-2018-07-15T14:05:10.056+0000 I NETWORK  [conn2] received client metadata from 172.17.0.1:57892 conn2: { driver: { name: "mongo-java-driver", version: "3.6.4" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "4.17.5-1-ARCH" }, platform: "Java/Oracle Corporation/10.0.1+10" }
-2018-07-15T14:05:10.113+0000 I STORAGE  [conn2] createCollection: mydb.test with generated UUID: a549ece2-96cb-4995-85af-5db19e0336b0
-2018-07-15T14:05:10.559+0000 I NETWORK  [conn1] end connection 172.17.0.1:57888 (0 connections now open)
-2018-07-15T14:05:10.559+0000 I NETWORK  [conn2] end connection 172.17.0.1:57892 (1 connection now open)
+
+{"t":{"$date":"2021-02-02T11:41:28.619+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.17.0.1:58692","connectionId":2,"connectionCount":2}}
+{"t":{"$date":"2021-02-02T11:41:28.619+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"172.17.0.1:58692","client":"conn2","doc":{"driver":{"name":"mongo-java-driver","version":"3.6.4"},"os":{"type":"Windows","name":"Windows 10","architecture":"amd64","version":"10.0"},"platform":"Java/Oracle Corporation/1.8.0_181-b13"}}}
+{"t":{"$date":"2021-02-02T11:41:28.639+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"conn2","msg":"createCollection","attr":{"namespace":"mydb.test","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"b862f932-c8aa-4b30-904b-0c3a1e6a1dd2"}},"options":{}}}
+{"t":{"$date":"2021-02-02T11:41:28.658+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn2","msg":"Index build: done building","attr":{"buildUUID":null,"namespace":"mydb.test","index":"_id_","commitTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+{"t":{"$date":"2021-02-02T11:41:29.035+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn2","msg":"Connection ended","attr":{"remote":"172.17.0.1:58692","connectionId":2,"connectionCount":0}}
+{"t":{"$date":"2021-02-02T11:41:29.035+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn1","msg":"Connection ended","attr":{"remote":"172.17.0.1:58688","connectionId":1,"connectionCount":1}}
+
 ```
 
 A good time to push this update to GitHub.
@@ -492,7 +497,7 @@ This will have created a new network called `se-methods`.  We can use this netwo
 
 #### Updating Our System
 
-First we need to stop our current MongoDB server.  In IntelliJ you should be able to see this in the Docker panel under **Containers**.  To stop it, select the container and **click** the **red stop button** on the left:
+First we need to stop our current MongoDB server.  In IntelliJ you should be able to see this in the Docker panel (later versions of IntelliJ show docker on the services tab rather than a docker tab) under **Containers**.  To stop it, select the container and **click** the **red stop button** on the left:
 
 ![IntelliJ Docker Container List](img/intellij-stop-container.png)
 
