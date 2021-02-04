@@ -274,7 +274,7 @@ Type **mongo** press ctrl + Enter to start.  The latest version of MongoDB will 
 
 With `mongo:latest` selected, click the **plus sign** to **Create Container**.  This will open the following window:
 
-![IntelliJ Create Container](img/intellij-create-container.png)
+![IntelliJ Create Container](img/intellij-create-container1.png)
 
 MongoDB is a server application which listens on port 27017.  We could just open that port, but just in case MongoDB is already running locally we will switch ports.  We looked at this in the last lab.  In the **Run Options** text box add **-p 27000:27017** as shown in the image.  Then click **Run**.  IntelliJ will start the container and it will be waiting for you to use.
 
